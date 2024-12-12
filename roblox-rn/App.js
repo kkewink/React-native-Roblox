@@ -1,15 +1,12 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import {Text, View } from 'react-native';
-import { StartScreen } from './src/screens/startScreen';
+import MainNavigator from './MainNavigator';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      
-      {StartScreen}
+    <>
       <StatusBar style="auto" />
-    </View>
+      <MainNavigator />
+    </>
   );
 }
-

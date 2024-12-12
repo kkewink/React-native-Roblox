@@ -1,19 +1,18 @@
 import React from "react";
 import { StyleSheet, View, Text, SafeAreaView,ImageBackground } from "react-native";
 import { Button } from "./Button/Button";
+import { useNavigation } from "@react-navigation/native";
+import MainNavigator from "../../MainNavigator";
 
-const fundo = {uri:'https://images.rbxcdn.com/782b7fc18a24ee997efd9a7f02fa4bf9-bg_08072019.jpg'};
+export default function Start() {
 
-export function StartScreen() {
-  
-
-  function onPressButton() {
-    console.log("pressionado");
+  function onPressButton(screen) {
+    navigator.navigate(screen);
   }
   return (
     <SafeAreaView style={{ flex: 1 }} egdes={['left', 'right']} >
-    <ImageBackground source={fundo} resizeMode="cover" style={styles.image}>
-      <Text
+      <ImageBackground source={require('./src/assets/fundoR.jpg')} resizeMode="cover" style={styles.image}>
+        <Text
         style={{
           textAlign: "center",
           fontSize: 44,
@@ -26,21 +25,21 @@ export function StartScreen() {
 
       </Text>
       <View style={styles.container}>
-        <Button
-          variant="outline"
-          style={{ marginBottom: 10 }}
-          onPress={onPressButton}
-          title="Sing Up"
-        />
+          <Button
+            variant="outline"
+            style={{ marginBottom: 10 }}
+            onPress={onPressButton("SingnUp")}
+            title="Sing Up"
+          />
 
-        <Button
-          style={{ marginBottom: 0 }}
-          iconName="shoppingcart"
-          variant="blackFriday"
-          onPress={onPressButton}
-          title="Log In"
-        />
-      </View>
+          <Button
+            style={{ marginBottom: 0 }}
+            iconName="shoppingcart"
+            variant="blackFriday"
+            onPress={onPressButton("Login")}
+            title="Log In"
+          />
+        </View>
       </ImageBackground>
     </SafeAreaView>
   );
@@ -58,5 +57,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
-export default StartScreen;
